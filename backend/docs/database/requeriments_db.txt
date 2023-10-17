@@ -1,0 +1,49 @@
+Análisis de requisitos de la base de datos:
+
+Lista de Sustantivos:
+
+° Buses
+° Parqueadero
+° Software
+° Frontera
+° Departamento
+° País
+° Empresa
+° Lista
+° Municipio
+° Coordenada
+° Ubicación
+° Administrador
+° Mapa
+
+Lista de Sustantivos depurada:
+
+° Buses
+° Parqueadero
+° Municipio
+° Mapa --> descartado
+
+Lista de adjetivos:
+
+° Buses: Localización, punto origen, punto destino, hora de salida del punto de origen, hora de llegada al punto de origen, tiempo de estadía en el parqueadero
+° Parqueadero: Disponibilidad, (ubicación) coordenadas del mismo, capacidad máxima para abarcar buses, capacidad actual.
+° Municipio: Nombre, parqueaderos.
+° Mapa: Localización de los parqueaderos, números de cupos disponible, tiempos de salida de los buses que actualmente están dentro,
+horarios de atención a los conductores
+
+Se descarta mapa como tipo de entidad, debido a que esta hace más referencia a la forma en como la aplicación debe mostrar la información
+
+Verbos- relaciones entre tipos de entidad
+
+Municipio y parqueadero: Un municipio puede tener 1 o muchos parqueaderos
+Parqueadero y buses: Un parqueadero puede tener 0 o muchos buses
+
+Por ahora queda completado el análisis de requerimiento de la base de datos.
+
+Se procede a construir el sitema de la base de datos: Diseño conceptual, lógico y finalmente el físico.
+
+Finalizado, tanto el modelo entidad relación y modelo relacional están en:
+
+docs/images/
+
+Se procede a la creación de la base de datos

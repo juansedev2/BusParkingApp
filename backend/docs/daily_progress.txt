@@ -1,0 +1,5 @@
+En esta primera parte voy a realizar el diagrama de componentes y entender realmente cuales son
+y como interactúan los componentes de todo el sistema de la aplicación
+
+Octubre 11 del 2023
+Se finaliza por el momento la base de datos y el app backend, ahora seguir con la API REST

@@ -1,0 +1,53 @@
+Análisis de requisitos:
+
+Una empresa de transportes intermunicipal requiere de la creación de un sistema de
+software que le permita gestionar los buses y los aparcaderos con los que cuenta para
+establecer la siguiente información:
+
+a. Disponibilidad de parqueaderos
+b. Localización de los buses
+c. Disponibilidad de cupos por bus
+
+Notas sobre el sistema de software solicitado:
+El sistema de software debe funcionar dentro de las fronteras del departamento de
+Cundinamarca, Colombia.
+
+La empresa transportadora tiene la siguiente lista de aparcaderos dentro del departamento:
+
+(Imagen de la tabla en: docs/images/ListaParqueaderos.PNG)
+
+Diseñar un sistema de información geográfico que utilice el mapa
+dinámico Open Street Map bajo los criterios establecidos por el modelo de vistas de
+arquitectura 4+1.
+
+Diseñe la base de datos necesaria para cubrir las solicitudes de la empresa
+
+Desarrolle el sistema de información teniendo en cuenta los siguientes aspectos:
+
+El sistema debe poder registrar la ubicación de los buses en función de su parqueo. 
+No se requiere ubicación en tiempo real.
+
+El sistema debe permitir el registro de la información de los buses indicando los
+siguientes datos:
+
+• Origen del bus,
+• destino del bus,
+• hora de salida del punto de origen,
+• hora de llegada al punto de destino,
+• Tiempo de estadía en el aparcadero.
+
+El administrador de un aparcadero debe registrar la información de la llegada y la salida
+de los buses de acuerdo con lo antes mencionado.
+• El sistema de información debe presentar en pantalla un mapa en el que se presente la
+información de los aparcaderos (Localización, Número de cupos disponible, tiempos de
+salida de los buses que actualmente están dentro, horarios de atención a los
+conductores)
+
+Fecha de entrega: 24 de octubre
+
+TODO: Pensar un poco en los modelos, habría que tener un modelo de bus que centralice todas
+las consultas necesarias en una sola función.
+
+Está largo el desarrollo.
+
+El total de capacidad máxima de buses es de 62 cupos por todos los parqueaderos

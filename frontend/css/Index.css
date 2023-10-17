@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --backgr-color: #22323d;
+    --tittles-color: #D9FFF8;
+    --links-color: #D9FFF8;
+    --text-color: #D9FFF8;
+    --border-table-color: #D9FFF8;
+}
+body{
+    background-color: var(--backgr-color) !important;
+}
+div#map { 
+    width: 90vw;
+    height: 85vh; 
+    margin: 30px auto;
+    border-radius: 10px;
+}

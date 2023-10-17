@@ -1,0 +1,41 @@
+En base a la lectura de los requerimientos:
+
+Se debe desarrollar una aplicación que permita dar un sistema
+de administración de gestión de buses y parqueaderos que se encuentran
+en una determinada área de Cundinamarca en Colombia.
+
+Notas sobre el sistema de software solicitado:
+El sistema de software debe funcionar dentro de las fronteras del departamento de
+Cundinamarca, Colombia.
+
+Se desarrollará una aplicación web como solución, con ayuda de la librería de Open Street Map
+
+La aplicación debe tratar la siguiente información:
+
+a. Disponibilidad de parqueaderos
+b. Localización de los buses
+c. Disponibilidad de cupos por bus
+
+El sistema debe tener en cuenta lo siguiente:
+
+El sistema debe permitir el registro de la información de los buses indicando los
+siguientes datos:
+
+• Origen del bus,
+• destino del bus,
+• hora de salida del punto de origen,
+• hora de llegada al punto de destino,
+• Tiempo de estadía en el aparcadero.
+
+Entonces, en base a ello se piensa en hacer una aplicación web que tenga una arquitectura
+de tipo cliente servidor. No será del todo un monolito, ya que se crearán dos aplicaciones, una aplicación
+frontend y una aplicación backend.
+
+Aplicación frontend: Será una aplicación del lado del cliente que permita realizar la interacción con el mapa
+y el sistema, realizando desde esta misma, las acciones que requiere el sistema con la manipulación del mapa.
+La aplicación frontend necesitará obligatoriamente el uso de la librería Open Street Map para el uso de los mapas dinámicos
+
+Aplicación backend: Será una API Restful que proveerá la información para el sistema, será el intermedarios entre el cliente y la base de datos.
+
+En cuanto a la base de datos, será de tipo relacional y se utilizarán las funcionalidades posibles de tipo espacial para el tratamiento de temas geográficos
+como las coordenadas de un punto.

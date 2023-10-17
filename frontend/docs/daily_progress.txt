@@ -1,0 +1,8 @@
+Se inicia con el desarrollo de la aplicacición FrontEnd
+
+Se usará jQuery, pues para aprender jQuery rápido
+
+Hay mejores herramientas, incluso JavaScript moderno parece ser suficiente y mejor
+
+Pero no está de más conocer esto de manera rápida
+

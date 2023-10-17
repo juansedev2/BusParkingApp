@@ -1,0 +1,112 @@
+Ideas para realizar las consultas:
+
+Para consultar la información entre las tablas de parqueadero y municipio, se debe hacer un JOIN
+entre las tablas, trayendo el id del parqueadero y el nombre del municipio.
+
+Para que un bus pueda indicar su punto de origen, se debe hacer un join entre la tabla de bus, tabla
+de parqueadero y tabla de municipio, empezando por el id del parqueadero y luego el id del municipio,
+porque la idea es traer la información del punto de origen del bus (donde está ubicado actualmente),
+el punto de destino (es el parqueadero al que debe de llegar), teniendo el id del mismo y el nombre
+del municipio donde está, esto puesto que ni siquiera el sistema contempla el nombre del parqueadero.
+
+Y pues hacer el sistema de tal forma que prohiba superar el límite de cupos máximos de parquederos,
+bien podría ser utilizando un trigger para consultar el valor actual de ocupación e incrementarlo
+si fuera el caso; PERO bloqueándo la actualización si el valor es igual o superior si se intenta
+agregar un cupo más.
+
+
+Dado que tal vez se puede utilizar sql muy avanzado, se omitirá esa parte y se utilizará la aplicación
+backend para poder validar los resultados, por ejemplo que se consulte el límite e ir comparando,
+es decir, hacer varias consultas necesarias siendo almacenadas en funciones de los modelos.
+
+Está largo...
+
+TRIGGERS:
+
+A ver...
+
+Chat GPT me está ayudando... obvio tengo el deber y pendiente de estudiar más el tema de bases de datos, ver 
+más de procedimientos almacenados, triggers, etc., mejor dicho SQL avanzado...
+
+Pero debido al tiempo y las circunstancias, me veo forzado a agilizar y usar ayuda de la herramienta
+
+Veo que me ayuda con los triggers, más sin embargo NO está cumpliendo todos los parámetros, por lo cual en este momento voy 
+a hacer un análisis completo de los disparadores que debe hacer y que cumpla con todas las políticias, así que:
+
+Políticas según reglas de negocios:
+
+1. Cuando se inserte un nuevo bus, debe pasar lo siguiente:
+
+INICIALMENTE TODO PARQUEADERO NUEVO DEBE TENER EL MISMO REGISTRO DE DATOS:
+
+* campos ocupación_actual debe ser cero, capacidad_actual y capaciada_maxima deben de ser iguales en mismo número
+* El único campo constante hasta que manualmente se actualice debe ser el de capacidad_máxima
+* Ninguno de los campos de ocupación_actual y capacidad_actual podrá ser negativo ni mayor que el campo capacidad_maxima
+
+Ahora bien, por cada inserción del bus:
+
+Según el id del parqueadero con el que se registre el bus, este parqueadero debe de:
+    
+    Aumentar en 1 la ocupación actual
+    Disminuir en 1 la capacidad actual
+
+SIN EMBARGO, ANTES DE QUE ESO SUCEDA, debe hacer esta validación:
+
+Sí el número de capacidad_actual del parqueadero NO es igual a cero entonces se permite insertar el nuevo bus, de lo 
+contrario se cancela la inserción
+
+2. Cuando se actualice el id del parqueadero de un bus:
+
+El parqueadero antiguo debe de:
+
+    Disminuir en 1 la ocupación actual
+    Aumentar en 1 la capacidad actual
+
+En el parqueadero nuevo debe de:
+
+    Aumentar en 1 la ocupación actual
+    Disminuir en 1 la capacidad actual
+
+
+SIN EMBARGO, ANTES DE QUE ESO SUCEDA, debe hacer esta validación:
+
+Sí el número de capacidad_actual del parqueadero NUEVO NO es igual a cero entonces se permite actualizar el registro, es 
+decir que se cambiar el id_parqueadero del registro del bus y:
+
+    En el parqueadero nuevo debe de:
+
+        Aumentar en 1 la ocupación actual
+        Disminuir en 1 la capacidad actual
+
+    El parqueadero antiguo debe de:
+
+        Aumentar en 1 la capacidad actual
+        Disminuir en 1 la ocupacion actual
+
+PERO si la capacidad_actual del parqueadero NUEVO ES CERO, pues se bloquea la actualización
+
+
+3. Cuando se elimina un bus, debe de pasar esto:
+
+    En el parqueadero en el que se encuentre:
+
+        Disminuir en 1 la ocupación actual
+        Aumentar en 1 la capacidad actual
+
+
+4. Se debe considerar que este proceso jamás debería permitir lo siguiente:
+
+    * Que los campos ocupación_actual, capacidad_actual y capaciada_maxima NUNCA pueden ser negativos
+    * Que el campo capacidad_actual solo puede ser igual o menor al campo capaciada_maxima
+    * Que el valor del campo ocupación_actual debe ser inversamente proporcional según se actualiza el de capacidad_actual
+    * Ambos campos deben de regirser por el valor de capacidad_máxima, en especial el de capacidad_actual.
+
+MI TAREA ES:
+
+REVISAR EL ANÁLISIS DE TRIGGER Y SOLICITAR AYUDA A CHAT GPT PARA QUE ME AYUDE A ARMARLOS RESPETANDO LAS POLÍTICAS ESTABLECIDAS
+
+Actualización 10 de octubre a las 20:31, ya se crearon los triggers, revisar el archivo db_app.script.sql
+
+Base de datos ya creada y poblada, los triggers funcionan bien...
+
+Etapa de diseño de base de datos finalizada...

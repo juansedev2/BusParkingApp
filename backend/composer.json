@@ -1,0 +1,24 @@
+{
+    "name": "jdev2/apprest",
+    "description": "An Restful API of the bus parking app",
+    "type": "project",
+    "require": {
+        "pecee/simple-router": "5.3.0.5",
+        "illuminate/database": "^10.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jdev2\\Apprest\\": "src/"
+        },
+        "files": [
+            "./src/core/testing/functions/Functions.php",
+            "./src/core/functions/ApiFunctions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "juansedev2",
+            "email": "jsab62tol@gmail.com"
+        }
+    ]
+}
